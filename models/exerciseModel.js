@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [1],
-        isIn: [['cardio', 'strength', 'stretching', 'meditation']]
+        isIn: [['stretching', 'cardio', 'strength-training', 'meditation']]
       },
     },
     exercise_name: {
@@ -17,7 +17,14 @@ module.exports = function (sequelize, DataTypes) {
         len: [1],
       },
     }
+
   });
+  Exercise.associate = function (models) {
+    Exercise.belongsTo(models.Activity, {
+      foreignKey: {
+        allowNull: false
+      }
+    })
+  }
   return Exercise;
 };
-
