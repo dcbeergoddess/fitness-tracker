@@ -44,6 +44,10 @@ require("./routes/html_routes")(app);
 // -- Example ROUTES using EXPRESS ROUTER (https://expressjs.com/en/guide/routing.html) -- //
 
 // -- Use express router to register routes as middleware -- //
+
+/*
+I believe I found another "bug" in the homework. Getting the exercises to list in the base app was not working by default. Line 47 of server.js needs to be changed to app.use('/api', api_routes) After doing that you can define the route in api_routes as /exercise and you will stop getting a 404 error on the page as soon as you hit add
+*/
 app.use('/api/activity', api_routes);
 
 // ======= ALTERNATE SYNTAX FOR /about ROUTE USING EXPRESS ROUTER ==== //
